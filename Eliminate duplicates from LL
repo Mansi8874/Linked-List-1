@@ -1,0 +1,24 @@
+public class Solution {
+
+	public static LinkedListNode<Integer> removeDuplicates(LinkedListNode<Integer> head) {
+		//Your code goes here
+        if(head==null || head.next==null){
+            return head;
+        }
+        LinkedListNode<Integer> currNode = head.next;
+        LinkedListNode<Integer> prevNode = head;
+        //LinkedListNode<Integer> FinalHead = head;
+        while(currNode!=null){
+            if(currNode.data.equals(prevNode.data)){
+                currNode=currNode.next;
+            }else{
+                prevNode.next=currNode;
+                prevNode=currNode;
+                //currNode=currNode.next;
+            }
+        }
+        prevNode.next=null;
+        return head;
+	}
+
+}
