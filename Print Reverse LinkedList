@@ -1,0 +1,26 @@
+public class Solution {
+
+	public static void printReverse(LinkedListNode<Integer> root) {
+		//Your code goes here
+//         if(root==null || root.next==null){
+//             return;
+//         }
+       
+//         LinkedListNode<Integer> currNode=root.next;
+//         LinkedListNode<Integer> prevNode=root;
+//         while(currNode!=null){
+//              LinkedListNode<Integer> nextNode=currNode.next;
+//             currNode.next=prevNode;
+//             prevNode=currNode;
+//             currNode=nextNode;
+//         }
+//         root.next=null;
+//         root=prevNode;
+        if(root==null){
+            return;
+        }
+        printReverse(root.next);
+        System.out.print(root.data+" ");
+	}
+
+}
