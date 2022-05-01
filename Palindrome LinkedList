@@ -1,0 +1,46 @@
+public class Solution {
+    public static LinkedListNode<Integer> reverse(LinkedListNode<Integer> root){
+        if(root==null || root.next==null){
+            return root;
+        }
+       
+        LinkedListNode<Integer> currNode=root;
+        LinkedListNode<Integer> prevNode=null;
+        while(currNode!=null){
+             LinkedListNode<Integer> nextNode=currNode.next;
+            currNode.next=prevNode;
+            prevNode=currNode;
+            currNode=nextNode;
+        }
+        return prevNode;
+    }
+    public static LinkedListNode<Integer>findMiddle(LinkedListNode<Integer> head){
+        LinkedListNode<Integer> hare=head;
+        LinkedListNode<Integer> turtle=head;
+        while(hare.next != null && hare.next.next != null){
+            hare=hare.next.next;
+            turtle=turtle.next;
+        }
+        return turtle;
+    }
+
+	public static boolean isPalindrome(LinkedListNode<Integer> head) {
+		//Your code goes here
+        if(head==null || head.next==null){
+            return true;
+        }
+        LinkedListNode<Integer> firstHalfLast=findMiddle(head);
+        LinkedListNode<Integer> secondHalfStart=reverse(firstHalfLast.next);
+        LinkedListNode<Integer> firstHalfStart=head;
+        while(secondHalfStart !=null){
+            if(firstHalfStart.data!=secondHalfStart.data){
+                return false;
+            }else{
+                firstHalfStart=firstHalfStart.next;
+                secondHalfStart=secondHalfStart.next;
+            }
+        }
+        return true;
+	}
+
+}
