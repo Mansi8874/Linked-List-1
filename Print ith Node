@@ -1,0 +1,25 @@
+public class Solution {
+
+	public static void printIthNode(LinkedListNode<Integer> head, int i){
+		//Your code goes her
+        // int size=0;
+        // while(head!=null){
+        //     size++;
+        //     head=head.next;
+        // }
+        if(head==null){
+            return;
+        }
+        LinkedListNode<Integer> currNode = head;
+        int idx=0;
+        while(currNode!=null){
+            if(idx==i){
+                System.out.print(currNode.data);
+            }
+            idx++;
+           currNode=currNode.next;
+        }
+        
+        
+	}
+}
