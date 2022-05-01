@@ -1,0 +1,20 @@
+public class Solution {
+	public static int findNode(LinkedListNode<Integer> head, int n) {
+		// Write your code here.
+        if(head==null){
+            return -1;
+        }
+        
+        int i=0;
+        LinkedListNode<Integer> currNode=head;
+        while(currNode!=null){
+            if(currNode.data==n){
+                return i;
+            }
+            currNode=currNode.next;
+            i++;
+            
+        }
+        return -1;
+	}
+}
